@@ -12,6 +12,8 @@
 		BC5A96DD2B8A3FD000671CE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC5A96DC2B8A3FD000671CE8 /* Assets.xcassets */; };
 		BC5A96E02B8A3FD000671CE8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC5A96DF2B8A3FD000671CE8 /* Preview Assets.xcassets */; };
 		BC61D95B2B94BABA008B7340 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC61D95A2B94BABA008B7340 /* AddView.swift */; };
+		BC854BD82BEE5A4400E69FCA /* ExpenseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC854BD72BEE5A4400E69FCA /* ExpenseItem.swift */; };
+		BC854BDA2BEE5BE700E69FCA /* ExpenseItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC854BD92BEE5BE700E69FCA /* ExpenseItemsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		BC5A96DC2B8A3FD000671CE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BC5A96DF2B8A3FD000671CE8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BC61D95A2B94BABA008B7340 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		BC854BD72BEE5A4400E69FCA /* ExpenseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseItem.swift; sourceTree = "<group>"; };
+		BC854BD92BEE5BE700E69FCA /* ExpenseItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseItemsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,8 +57,10 @@
 		BC5A96D72B8A3FCE00671CE8 /* iExpense */ = {
 			isa = PBXGroup;
 			children = (
+				BC854BD92BEE5BE700E69FCA /* ExpenseItemsView.swift */,
 				BC5A96D82B8A3FCE00671CE8 /* iExpenseApp.swift */,
 				BC5A96DA2B8A3FCE00671CE8 /* ContentView.swift */,
+				BC854BD72BEE5A4400E69FCA /* ExpenseItem.swift */,
 				BC61D95A2B94BABA008B7340 /* AddView.swift */,
 				BC5A96DC2B8A3FD000671CE8 /* Assets.xcassets */,
 				BC5A96DE2B8A3FD000671CE8 /* Preview Content */,
@@ -143,6 +149,8 @@
 				BC5A96DB2B8A3FCE00671CE8 /* ContentView.swift in Sources */,
 				BC5A96D92B8A3FCE00671CE8 /* iExpenseApp.swift in Sources */,
 				BC61D95B2B94BABA008B7340 /* AddView.swift in Sources */,
+				BC854BDA2BEE5BE700E69FCA /* ExpenseItemsView.swift in Sources */,
+				BC854BD82BEE5A4400E69FCA /* ExpenseItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

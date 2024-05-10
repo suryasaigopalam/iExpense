@@ -6,62 +6,61 @@
 //
 
 import SwiftUI
-struct ExpenseItem:Identifiable,Codable {
-    var id = UUID()
-    let name:String
-    let type:String
-    let amount:Double
-}
-@Observable
-class Expenses {
-    var items:[ExpenseItem] = [] {
-        didSet {
-            if let data = try? JSONEncoder().encode(items) {
-                UserDefaults.standard.setValue(data, forKey: "Items")
-                
-            }
-        }
-    }
-    init() {
-        if let data = UserDefaults.standard.data(forKey: "Items") {
-            if let decodedItems = try?  JSONDecoder().decode([ExpenseItem].self, from: data) {
-                items = decodedItems
-            }
-        }
-    }
-}
+
+
 struct ContentView: View {
-  @State var expenses = Expenses()
     @State var showingAddExpense = false
-    
+    @State var sortOrder = "Name"
+    @State var reverseorder = false
+    @State var showing = "All"
     var body: some View {
         NavigationStack {
-            Form {
-                ForEach(expenses.items) { item in
-            
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text(item.name)
-                                .font(.headline)
-                            Text(item.type)
-                        }
-                        Spacer()
-                        Text(item.amount,format:.currency(code: "USD"))
-                    }
-                }
-                .onDelete(perform: { indexSet in
-                    expenses.items.remove(atOffsets: indexSet)
-                })
-           
-            }
+            ExpenseItemsView(sortOrder: sortOrder,reverseorder:reverseorder,showing: showing)
             .navigationTitle("iExpenses")
             .toolbar {
-                Button("Add",systemImage: "plus") {
-                    showingAddExpense  = true
+           
+                    Button("Add",systemImage: "plus") {
+                        showingAddExpense  = true
+                    }
+                    
+                    Menu("Sorting",systemImage: "arrow.up.arrow.down") {
+                        Picker("Sort",selection: $sortOrder) {
+                            Text("Name")
+                                .tag("Name")
+                                
+                            Text("Price")
+                                .tag("Amount")
+                               
+                        }
+                        
+                    }
+                
+                  
+                Menu("SortingOrder") {
+                    Picker("Sort",selection: $reverseorder) {
+                        Text("Low-High")
+                            .tag(false)
+                            
+                        Text("High-Low")
+                            .tag(true)
+                           
+                    }
+                    
                 }
+                Menu("Showing: \(showing)") {
+                    Picker("show",selection: $showing) {
+                        Text("All")
+                            .tag("All")
+                        Text("Business")
+                            .tag("Business")
+                        Text("Personal")
+                            .tag("Personal")
+                    }
+                }
+            
             }
             .sheet(isPresented: $showingAddExpense, content: {
-                AddView(expenses: expenses,dismiss: $showingAddExpense)
+                AddView()
             })
         }
     }
